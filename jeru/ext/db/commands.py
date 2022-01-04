@@ -1,5 +1,5 @@
+from ...models import User
 from ..db import db
-from .models import User
 
 
 def create_db():

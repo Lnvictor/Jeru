@@ -1,10 +1,12 @@
-from os import getenv
-
+from decouple import config
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 
 def init_app(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DB_URL")
+    app.config["SQLALCHEMY_DATABASE_URI"] = config("DB_URL")
     db.init_app(app)
+
+    with app.app_context():
+        db.create_all()

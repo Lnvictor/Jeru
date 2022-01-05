@@ -11,6 +11,7 @@ Flask-CLI = "^0.4.0"
 Flask-SQLAlchemy = "^2.5.1"
 python-decouple = "^3.5"
 SQLAlchemy-serializer = "^1.4.1"
+bcrypt = "^3.2.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"

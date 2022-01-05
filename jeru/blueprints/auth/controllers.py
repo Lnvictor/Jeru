@@ -1,17 +1,15 @@
 from datetime import datetime
 
+import bcrypt
+
 from jeru.ext.db import db
 from jeru.models import User
 
 
 def create_user(data):
-    """
-    TODO:
-        Implement the password in a encripted form using bcrypt
-    """
     date = [int(n) for n in data["birthday"].split("/")]
     data["birthday"] = datetime(day=date[0], month=date[1], year=date[2])
-
+    data["password"] = bcrypt.hashpw(data["password"], bcrypt.gensalt())
     user = User(**data)
     db.session.add(user)
     db.session.commit()

@@ -5,6 +5,8 @@ import bcrypt
 from jeru.ext.db import db
 from jeru.models import User
 
+from .http_auth import auth
+
 
 def create_user(data):
     date = [int(n) for n in data["birthday"].split("/")]

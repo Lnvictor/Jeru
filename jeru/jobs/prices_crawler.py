@@ -3,7 +3,6 @@ from threading import Thread
 
 import scrapy
 from scrapy.crawler import CrawlerProcess
-
 from utils import load_from_csv, parse_enxuto, parse_higa
 
 

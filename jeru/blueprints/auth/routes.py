@@ -2,8 +2,13 @@ import json
 
 from flask import Blueprint, jsonify, request
 
-from .controllers import (create_user, delete_user, get_all_users,
-                          get_user_by_id, update_user)
+from .controllers import (
+    create_user,
+    delete_user,
+    get_all_users,
+    get_user_by_id,
+    update_user,
+)
 from .http_auth import auth
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")

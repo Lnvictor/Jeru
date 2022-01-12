@@ -735,6 +735,20 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "pyjwt"
+version = "2.3.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+crypto = ["cryptography (>=3.3.1)"]
+dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "mypy", "pre-commit"]
+docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+
+[[package]]
 name = "pyopenssl"
 version = "21.0.0"
 description = "Python wrapper module around the OpenSSL library"
@@ -1015,7 +1029,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "6e20b3353952db387713ddbbf8002b2edaa4490d27ca31283a29dafebc07a007"
+content-hash = "0ee1ef10cbae705e03c43106aedf7efa0dde6a88d52d8c1b415de253138bc41c"
 
 [metadata.files]
 amqp = [
@@ -1525,6 +1539,10 @@ pydispatcher = [
 pygments = [
     {file = "Pygments-2.11.1-py3-none-any.whl", hash = "sha256:9135c1af61eec0f650cd1ea1ed8ce298e54d56bcd8cc2ef46edd7702c171337c"},
     {file = "Pygments-2.11.1.tar.gz", hash = "sha256:59b895e326f0fb0d733fd28c6839bd18ad0687ba20efc26d4277fd1d30b971f4"},
+]
+pyjwt = [
+    {file = "PyJWT-2.3.0-py3-none-any.whl", hash = "sha256:e0c4bb8d9f0af0c7f5b1ec4c5036309617d03d56932877f2f7a0beeb5318322f"},
+    {file = "PyJWT-2.3.0.tar.gz", hash = "sha256:b888b4d56f06f6dcd777210c334e69c737be74755d3e5e9ee3fe67dc18a0ee41"},
 ]
 pyopenssl = [
     {file = "pyOpenSSL-21.0.0-py2.py3-none-any.whl", hash = "sha256:8935bd4920ab9abfebb07c41a4f58296407ed77f04bd1a92914044b848ba1ed6"},

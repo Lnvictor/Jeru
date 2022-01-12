@@ -1,4 +1,5 @@
 import json
+from collections import defaultdict
 
 from ...ext.db import db
 from ...models import Product
@@ -16,8 +17,12 @@ def search_product(data):
     )
     records = [row for row in result]
     records.sort(key=lambda x: x[2])
-    return {
-        "Name": records[0][1],
-        "Price": records[0][2],
-        "Supermarket": "Enxuto" if records[0][3] == 1 else "Higa",
-    }
+
+    try:
+        return {
+            "Name": records[0][1],
+            "Price": records[0][2],
+            "Supermarket": "Enxuto" if records[0][3] == 1 else "Higa",
+        }
+    except IndexError:
+        return {"message": "Product not found"}

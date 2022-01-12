@@ -5,13 +5,13 @@ import bcrypt
 from jeru.ext.db import db
 from jeru.models import User
 
-from .http_auth import auth
+from ...ext.http_auth import auth, jwt_utils
 
 
 def create_user(data):
     date = [int(n) for n in data["birthday"].split("/")]
     data["birthday"] = datetime(day=date[0], month=date[1], year=date[2])
-    data["password"] = bcrypt.hashpw(data["password"], bcrypt.gensalt())
+    data["password"] = bcrypt.hashpw(data["password"].encode(), bcrypt.gensalt())
     user = User(**data)
     db.session.add(user)
     db.session.commit()
@@ -44,3 +44,10 @@ def delete_user(id):
         return True
     except:
         return False
+
+
+def make_login(username, password):
+    user = User.query.filter_by(username=username).first()
+    if bcrypt.checkpw(password.encode(), user.password):
+        return {"token": jwt_utils.generate_jwt_token(user), "status": 200}
+    return {"message": "Invalid credentials", "status": 401}

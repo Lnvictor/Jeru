@@ -15,6 +15,7 @@ bcrypt = "^3.2.0"
 Flask-HTTPAuth = "^4.5.0"
 Scrapy = "^2.5.1"
 celery = "^5.2.3"
+PyJWT = "^2.3.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"

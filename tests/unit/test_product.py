@@ -11,8 +11,10 @@ def test_create_product(client):
     assert product.name == "Batatinha"
 
 
-def test_search_product():
-    """
-    TODO:
-    """
-    pass
+def test_search_product(client):
+    data = {
+        "input": "leite"
+    }
+    resp = search_product(data)
+
+    assert resp["Name"] is not None
